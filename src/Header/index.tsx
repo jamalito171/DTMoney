@@ -7,7 +7,7 @@ export function Header() {
             <HeaderBackground>
                 <HeaderTop>
                     <Icon source={Icone}></Icon>
-                    <Title></Title>
+                    <Title>DT Money</Title>
                 </HeaderTop>
             </HeaderBackground>
         </ContainerHeader>

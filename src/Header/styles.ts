@@ -18,7 +18,7 @@ export const HeaderTop = styled.View`
 export const Icon = styled.Image`
 
 `;
-export const Title = styled.View`
+export const Title = styled.Text`
     color: #fff;
     font-size: 20px;
     font-weight: 700;

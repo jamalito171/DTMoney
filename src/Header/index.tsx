@@ -1,4 +1,4 @@
-import { ContainerHeader, HeaderBackground, HeaderTop, Icon, Title} from "./styles";
+import {  Button, ContainerHeader, HeaderBackground, HeaderTop, Icon, Label, Logo, Title} from "./styles";
 
 const Icone = require('../assets/icon.png');
 export function Header() {
@@ -6,8 +6,13 @@ export function Header() {
         <ContainerHeader>
             <HeaderBackground>
                 <HeaderTop>
-                    <Icon source={Icone}></Icon>
-                    <Title>DT Money</Title>
+                    <Logo>
+                        <Icon source={Icone}></Icon>
+                        <Title>dt money</Title>
+                    </Logo>
+                    <Button>
+                        <Label>Nova Transação</Label>
+                    </Button>
                 </HeaderTop>
             </HeaderBackground>
         </ContainerHeader>

@@ -4,6 +4,12 @@ import { Platform } from "react-native";
 
 const iOS = Platform.OS;
 
+export const Container = styled.View`
+  flex: 1;
+
+  background-color: #E5E5E5;
+`;
+
 export const ContainerHeader = styled.View`
     flex: 0.3;
     background-color: #5429CC;
@@ -57,3 +63,4 @@ export const Label = styled.Text`
     text-align: right;   
    
 `;
+export const ListBalance = styled.ScrollView``;

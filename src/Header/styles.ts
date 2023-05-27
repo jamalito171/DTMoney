@@ -10,17 +10,16 @@ export const Container = styled.View`
   background-color: #E5E5E5;
 `;
 
-export const ContainerHeader = styled.View`
-    flex: 0.3;
-    background-color: #5429CC;
-    
-`;
-export const HeaderBackground = styled.View`
-    width: 100%;
-    heigth: 234px;
-    background-color:##5429CC;
-    padding-top: ${iOS === 'android' ? 32 : 62}px;
 
+
+export const HeaderBackground = styled.View`
+ 
+  width: 100%;
+  min-height: 230px;
+  max-height: 250px;
+  padding-top: ${Platform.OS === 'android' ? 32 : 62}px;
+
+  background-color: #5429cc;
 `;
 export const HeaderTop = styled.View`
     flex-direction: row;
@@ -63,4 +62,3 @@ export const Label = styled.Text`
     text-align: right;   
    
 `;
-export const ListBalance = styled.ScrollView``;

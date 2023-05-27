@@ -1,14 +1,12 @@
 import { Header} from "../Header";
-import { ListBalance, Title } from "../Header/styles";
-import { Container, StatusBar } from "./styles";
+
+import { Container, ListBalance, HeaderTransactionList, TitleList, StatusBar, AmountTransaction, ConteinerListHorizontal  } from "./styles";
 import { BalanceCard } from "../BalanceCard";
 import { FlatList } from "react-native";
 import {
     TransactionCard,
     Transaction,
   } from '../TransactionCard/index'
-import { ModalNewTransaction } from "../ModalNewTransaction";
-
   
 type DataTransactionType = {
     id: string;
@@ -39,51 +37,80 @@ type DataTransactionType = {
       date: '27/03/2021',
       type: 'Saída',
     },
+    {
+      id: '4',
+      title: 'Aluguel do apartamento',
+      category: 'Casa',
+      value: 1.2009,
+      date: '27/03/2021',
+      type: 'Saída',
+    },
+    {
+      id: '5',
+      title: 'Aluguel do apartamento',
+      category: 'Casa',
+      value: 1.2009,
+      date: '27/03/2021',
+      type: 'Saída',
+    },
+    {
+      id: '6',
+      title: 'Aluguel do apartamento',
+      category: 'Casa',
+      value: 1.2009,
+      date: '27/03/2021',
+      type: 'Saída',
+    },
   ];
 
-export function Home() {
-    
-    function ListHeaderComponent() {
-        return <Title>DT Money</Title>;
-      }
+export function Home() {  
+
+ 
+  
+  function ListHeaderComponent() {
+    return (
+      <HeaderTransactionList>
+        <TitleList>Transações</TitleList>
+        <AmountTransaction>08</AmountTransaction>
+      </HeaderTransactionList>
+    );
+  }
     return(
         <>
         <StatusBar barStyle={"light-content"} backgroundColor="transparent" translucent/>
-        <Container>
-
-            <ModalNewTransaction />
+        <Container>       
             
-            {/*
-            <Header></Header>
+              <Header></Header>
+              <ConteinerListHorizontal>
+              <ListBalance
+                  horizontal
+                  showsHorizontalScrollIndicator={true}
+                  contentContainerStyle={{
+                    paddingHorizontal: 25,
+                    gap: 16,
+                  }}
+                  style={{
+                  }}>
+              
+                  <BalanceCard
+                        title="Entradas"
+                        value="R$ 17.400,00"
+                        description="Última entrada dia 13 de abril"
+                  />
+                  <BalanceCard
+                      title="Saídas"
+                      value="R$ 17.400,00"
+                      description="Última entrada dia 13 de abril"
+                  />
+                  <BalanceCard
+                      title="Total"
+                      value="R$ 17.400,00"
+                      description="Última entrada dia 13 de abril"
+                  />
+               
+              </ListBalance>
+            </ConteinerListHorizontal>
             
-            <ListBalance
-                horizontal
-                showsHorizontalScrollIndicator={true}
-                contentContainerStyle={{
-                  paddingHorizontal: 25,
-                  gap: 16,
-                }}
-                style={{
-                  position: 'absolute',
-                  top: 160,
-                }}>
-               <BalanceCard
-                    title="Entradas"
-                    value="R$ 17.400,00"
-                    description="Última entrada dia 13 de abril"
-                />
-                <BalanceCard
-                    title="Saídas"
-                    value="R$ 17.400,00"
-                    description="Última entrada dia 13 de abril"
-                />
-                <BalanceCard
-                    title="Total"
-                    value="R$ 17.400,00"
-                    description="Última entrada dia 13 de abril"
-                />
-            
-            </ListBalance>
         <FlatList
           ListHeaderComponent={<ListHeaderComponent />}
           contentContainerStyle={{
@@ -92,7 +119,7 @@ export function Home() {
           data={dataTransaction}
           keyExtractor={item => item.id}
           renderItem={({item}) => <TransactionCard transaction={item} />}
-        /> */}
+        />  
         </Container>
         </>
     );

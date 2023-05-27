@@ -1,26 +1,67 @@
+import {Image, ModalProps} from 'react-native';
 
-import { ModalProps } from "react-native";
-import { ModalTransaction, BackGroundOverlay, ModalContainer, ModalHeader, ModalTitle, ModalButtonClose, ModalButtonCloseLabel} from "./styles";
+import {
+  ModalTransaction,
+  BackgroundOverlay,
+  ModalContainer,
+  ModalHeader,
+  ModalTitle,
+  ModalButtonClose,
+  ModalButtonCloseLabel,
+  ModalInput,
+  ModalContainerCategory,
+  ModalCategory,
+  ModalCategoryLabel,
+  ModalButtonNewTransaction,
+  ModalButtonNewTransactionLabel,
+} from './styles';
 
-
-interface ModalNewTransactionProps extends ModalProps{
-
+const icons = {
+  entrada: require('../assets/Entradas.png'),
+  saida: require('../assets/Saídas.png'),
 };
 
-export function ModalNewTransaction({... rest}: ModalNewTransactionProps) {
-    return (
-        <ModalTransaction transparent {...rest}>
-            <BackGroundOverlay>
-                <ModalContainer>
-                    <ModalHeader>
-                        <ModalTitle>Cadastrar transação</ModalTitle>
-                        <ModalButtonClose>
-                            <ModalButtonCloseLabel>x</ModalButtonCloseLabel>
-                        </ModalButtonClose>
-                    </ModalHeader>
+interface ModalNewTransactionProps extends ModalProps {
+  onClose: () => void;
+}
 
-                </ModalContainer>
-            </BackGroundOverlay>
-        </ModalTransaction>
-    );
+export function ModalNewTransaction({
+  onClose,
+  ...rest
+}: ModalNewTransactionProps) {
+  return (
+    <ModalTransaction transparent {...rest}>
+      <BackgroundOverlay>
+        <ModalContainer>
+          <ModalHeader>
+            <ModalTitle>Cadastrar transação</ModalTitle>
+            <ModalButtonClose onPress={() => onClose()}>
+              <ModalButtonCloseLabel>x</ModalButtonCloseLabel>
+            </ModalButtonClose>
+          </ModalHeader>
+          <ModalInput placeholder="Nome" />
+
+          <ModalInput placeholder="Preço" />
+
+          <ModalContainerCategory>
+            <ModalCategory>
+              <Image source={icons.entrada} />
+              <ModalCategoryLabel>Income</ModalCategoryLabel>
+            </ModalCategory>
+
+            <ModalCategory>
+              <Image source={icons.saida} />
+              <ModalCategoryLabel>Outcome</ModalCategoryLabel>
+            </ModalCategory>
+          </ModalContainerCategory>
+
+          <ModalInput placeholder="Categoria" />
+
+          <ModalButtonNewTransaction>
+            <ModalButtonNewTransactionLabel>Cadastrar</ModalButtonNewTransactionLabel>
+          </ModalButtonNewTransaction>
+        </ModalContainer>
+      </BackgroundOverlay>
+    </ModalTransaction>
+  );
 }

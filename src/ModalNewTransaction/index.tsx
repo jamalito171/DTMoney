@@ -1,4 +1,6 @@
 import {Image, ModalProps} from 'react-native';
+import { DTO } from '../TransactionDTO/DTO';
+import { uuid } from '../utils/uuid';
 
 import {
   ModalTransaction,
@@ -15,6 +17,7 @@ import {
   ModalButtonNewTransaction,
   ModalButtonNewTransactionLabel,
 } from './styles';
+import { useState } from 'react';
 
 const icons = {
   entrada: require('../assets/Entradas.png'),
@@ -29,6 +32,17 @@ export function ModalNewTransaction({
   onClose,
   ...rest
 }: ModalNewTransactionProps) {
+  
+  const [newTransaction, setNewTransaction] = useState('')
+  const [transactions, setTransactions] = useState<DTO[]>([])
+  
+  // function handleTransactionAdd(){
+  //   setTransactions((transactions) => [...transactions,{id: uuid(), isImput : false,newTransaction.trim()}])
+
+  //   setNewTransaction('');
+
+  // }
+  
   return (
     <ModalTransaction transparent {...rest}>
       <BackgroundOverlay>
